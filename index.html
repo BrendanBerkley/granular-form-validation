@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Granular Validation</title>
+</head>
+<body>
+<form id="basic-form">
+<input type="text" data-gfv-validate="required,minlength:10" />
+<input type="submit" />
+</form>
+
+<script src="granular-form-validation.js"></script>
+<script>
+var basicForm = document.querySelector('#basic-form');
+gfv.initialize(basicForm);
+</script>
+</body>
+</html>
