@@ -7,6 +7,7 @@ I'm envisioning a library where:
 - Error message display can be customized
 - Custom validations are easily added
 - Custom builds would make it easy to exclude unnecessary validations
+- Everything is coded in vanilla JS, making it easier to integrate into any framework
 
 ## Adding validations
 
