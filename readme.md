@@ -30,6 +30,15 @@ On a form input you want to validate, add the attribute `data-gfv-validate`. Ins
 - errorFieldClass - adds a specified class to the erroneous field, unless false
 - scrollToFirstError - 'jump' to go straight there (FUTURE), 'scroll' to smooth scroll (TODO: remove jQuery dependency), 'none' to do nothing (FUTURE).
 - disableSubmit (FUTURE) - don't allow submit button to be pressed if true. 
+- errorElement (FUTURE) - `ul` by default to create a list; `ol`, `div`, and `p` should be acceptable
+
+## Default Options
+- `'location': 'after'`: Errors will show after the field in question
+- `'errorListClass': 'error-list'`: Error list will get this class
+- `'wrapper': ''`: error list will not go in a wrapper div of any kind.
+- `'validateBeforeSubmit': 'afterFirstSubmit'`: Will not validate until user tries to submit once 
+- `'errorFieldClass': false`: field doesn't get tagged with an error on validation
+- `'scrollToFirstError': 'scroll'`: Will smooth scroll by default.
 
 
 ## Future validation checks
