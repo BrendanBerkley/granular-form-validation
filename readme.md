@@ -9,6 +9,15 @@ I'm envisioning a library where:
 - Custom builds would make it easy to exclude unnecessary validations
 - Everything is coded in vanilla JS, making it easier to integrate into any framework
 
+## Project sections
+Made with Taiga tasks in mind. [Taiga project >>](https://tree.taiga.io/project/brendan-granular-validation)
+
+- Structure: Project structure, JS structure
+- Validation: Reading the validations, checking field values
+- Error Display: Translating validation errors to the DOM
+- Documentation: Docs, examples
+- Generator: Generate custom scripts, host validation pattern library
+
 ## Adding validations
 
 On a form input you want to validate, add the attribute `data-gfv-validate`. Inside, type what kinds of checks you want to run. No spaces, separate by commas. Here's what's available:

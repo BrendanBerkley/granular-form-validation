@@ -10,7 +10,7 @@ gfv.initialize = function(form, userOptions) {
 	// Set default options
 	gfv.options = {
 		'location': 'after',
-		'errorListClass': 'errorlist',
+		'errorListClass': 'error-list',
 		'wrapper': '',
 		'validateBeforeSubmit': 'afterFirstSubmit', 
 		'errorFieldClass': false,
