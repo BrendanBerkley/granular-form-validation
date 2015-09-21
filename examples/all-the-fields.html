@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Granular Validation</title>
+</head>
+<body>
+<form id="basic-form">
+<div>
+Username
+<input type="text" data-gfv-validate="required,minlength:10" />
+</div>
+
+<div>
+Why do you want to use this form?
+<textarea data-gfv-validate="required"></textarea>
+</div>
+
+<div>
+E-mail Address
+<input type="email" data-gfv-validate="emailLite" />
+</div>
+
+<div>
+Password
+<input type="password" data-gfv-validate="required,minlength:10" />
+</div>
+
+<div>
+Do you agree?
+<input type="checkbox" data-gfv-validate="required" />
+</div>
+
+<input type="submit" />
+</form>
+
+<script src="../dist/granular-form-validation.js"></script>
+<script>
+var basicForm = document.querySelector('#basic-form');
+gfv.initialize(basicForm);
+</script>
+</body>
+</html>

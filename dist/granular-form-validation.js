@@ -1,3 +1,4 @@
+/*! granular-form-validation - v0.1.0 - 2015-09-21 */
 
 var gfv = {};
 
@@ -19,9 +20,9 @@ gfv.initialize = function(form, userOptions) {
 
 	// Updated with custom options
 	for(var property in userOptions) {
-	    if(userOptions.hasOwnProperty(property)) {
-	        gfv.options[property] = userOptions[property];
-	    }
+		if(userOptions.hasOwnProperty(property)) {
+			gfv.options[property] = userOptions[property];
+		}
 	}
 
 	form.addEventListener('submit', function(event) {
@@ -94,8 +95,6 @@ gfv.watchFields = function(form, fieldsToValidate) {
 	});
 
 };
-
-
 gfv.validateFields = function(fieldsToValidate) {
 	var invalidFields = [];
 	// If we're only passing in a single element, recast it as an array
@@ -183,8 +182,6 @@ gfv.checkField = function(check, value) {
 			break;
 	}
 };
-
-
 gfv.placeErrors = function(invalidFields) {
 	invalidFields.forEach(function(invalidField) {
 		// Create our error list. Current default is an unordered list, and the
