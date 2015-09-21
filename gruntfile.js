@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 		concat: {
 			options: {
 				stripBanners: true,
-				banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+				banner: '/*! <%= pkg.name %> v<%= pkg.version %> - ' +
 							'<%= grunt.template.today("yyyy-mm-dd") %> */\n\n'
 			},
 			dist: {
@@ -16,9 +16,16 @@ module.exports = function(grunt) {
 				dest: 'dist/<%= pkg.name %>.js',
 			},
 		},
+		watch: {
+			scripts: {
+				files: ['src/*.js'],
+				tasks: ['concat'],
+			},
+		},
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('default', [ 'concat' ]);
+	grunt.registerTask('default', ['concat']);
 };

@@ -1,4 +1,3 @@
-/* This is toast */
 var gfv = {};
 
 gfv.initialize = function(form, userOptions) {
