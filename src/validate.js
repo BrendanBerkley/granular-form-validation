@@ -9,20 +9,11 @@ gfv.validateFields = function(fieldsToValidate) {
 
 	[].forEach.call(fieldsToValidate, function(field) {
 		field.gfvErrors = [];
-		allValidations = field.getAttribute('data-gfv-validate').split(',');
-		
-		value = field.value;
-		if (field.getAttribute('type') === 'checkbox') {
-			if (field.checked) {
-				value = 'checked';
-			} else {
-				value = '';
-			}
-		}
+		var allValidations = field.getAttribute('data-gfv-validate').split(',');
 
 		allValidations.forEach(function(validation) {
-			validate = validation.split(":");
-			var error = gfv.checkField(validate, value);
+			var validate = validation.split(":");
+			var error = gfv.checkField(validate, field);
 			if (error) {
 				field.gfvErrors.push(error);
 			}
@@ -38,18 +29,30 @@ gfv.validateFields = function(fieldsToValidate) {
 };
 
 
-gfv.checkField = function(check, value) {
+gfv.checkField = function(check, field) {
 	switch(check[0]) {
 		case "required":
-			if (value === "") {
-				return "This field is required.";
+			console.log('required check for:');
+			console.log(field);
+			switch(field.type) {
+				case 'checkbox':
+				case 'radio':
+					// if blank name, assume it's solo
+					// otherwise check for other fields with that name
+					console.log(field.name);
+					console.log(field.checked);
+					break;
+				default:
+					if (field.value === "") {
+						return "This field is required.";
+					}
 			}
 			break;
 
 		case "emailLite":
 			// checking for something, @, something, ., and at least two somethings after that.
 			var emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-			if (!emailRegExp.test(value)) {
+			if (!emailRegExp.test(field.value)) {
 				return "Enter a valid e-mail address.";
 			}
 			break;
@@ -59,26 +62,26 @@ gfv.checkField = function(check, value) {
 			// most technically correct, but many will not see it as practical
 			// because it doesn't require a period after the @
 			var emailRegExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-			if (!emailRegExp.test(value)) {
+			if (!emailRegExp.test(field.value)) {
 				return "Enter a valid e-mail address.";
 			}
 			break;
 
 		case "minlength":
-			if (value.length < check[1]) {
+			if (field.value.length < check[1]) {
 				return "Must be at least " + check[1] + " characters.";
 			}
 			break;
 			
 		case "maxlength":
-			if (value.length > check[1]) {
+			if (field.value.length > check[1]) {
 				return "Cannot be more than " + check[1] + " characters.";
 			}
 			break;
 
 		case "matches":
 			var valueToMatch = document.getElementById(check[1]).value;
-			if (value !== valueToMatch) {
+			if (field.value !== valueToMatch) {
 				var label = document.querySelector('label[for='+ check[1] +']').textContent.trim();
 				return "Must match " + label + " field.";
 			}

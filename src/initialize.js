@@ -1,3 +1,5 @@
+"use strict";
+
 var gfv = {};
 
 gfv.initialize = function(form, userOptions) {
@@ -44,9 +46,11 @@ gfv.initialize = function(form, userOptions) {
 				gfv.placeErrors(invalidFields);
 
 				if (gfv.options.scrollToFirstError === 'scroll') {
-					$('html, body').animate({
-						scrollTop: $(invalidFields[0]).offset().top - 50
-					}, 500);
+					// TO DO: Make this not jQuery. Maybe use this:
+					// https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+					// $('html, body').animate({
+					// 	scrollTop: $(invalidFields[0]).offset().top - 50
+					// }, 500);
 				}
 			}
 		}
@@ -69,6 +73,7 @@ gfv.watchFields = function(form, fieldsToValidate) {
 				event = 'keyup';
 				break;
 			case 'checkbox':
+			case 'radio':
 				event = 'click';
 				break;
 			case 'file':

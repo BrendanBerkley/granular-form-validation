@@ -4,13 +4,14 @@ From project to project, forms tend to be just different enough to make many val
 
 I'm envisioning a library where:
 - Validation happens separately from displaying the content
+- Validation doesn't make DOM decisions for you; that is, validations are tied to the form fields rather than wrapper elements wherever possible
 - Error message display can be customized
 - Custom validations are easily added
 - Custom builds would make it easy to exclude unnecessary validations
 - Everything is coded in vanilla JS, making it easier to integrate into any framework
 
 ## Project sections
-Made with Taiga tasks in mind. [Taiga project >>](https://tree.taiga.io/project/brendan-granular-validation)
+Made these up to help compartmentalize the project and categorize Taiga tasks. [Taiga project >>](https://tree.taiga.io/project/brendan-granular-validation)
 
 - Structure: Project structure, JS structure
 - Validation: Reading the validations, checking field values
